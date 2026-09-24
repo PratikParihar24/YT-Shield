@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YT Shield Settings</title>
+  <script type="module" crossorigin src="./options.js"></script>
+  <link rel="modulepreload" crossorigin href="../chunks/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="../chunks/storage-DL4UGFmJ.js">
+  <link rel="stylesheet" crossorigin href="./options.css">
+</head>
+<body>
+  <div class="options-container">
+    <div class="options-header">
+      <h1 class="title">YT Shield</h1>
+      <span class="subtitle">Settings & Preferences</span>
+    </div>
+
+    <!-- GENERAL -->
+    <div class="section">
+      <h2 class="section-title">General</h2>
+      <div class="setting-row">
+        <div class="setting-info">
+          <span class="setting-label">Protection</span>
+          <span class="setting-desc">Enable or disable all protection capabilities</span>
+        </div>
+        <button id="optProtection" class="toggle-btn" aria-label="Toggle Protection">ON</button>
+      </div>
+    </div>
+
+    <!-- DETECTION -->
+    <div class="section">
+      <h2 class="section-title">Detection</h2>
+      <div class="setting-row">
+        <div class="setting-info">
+          <span class="setting-label">Player detection</span>
+          <span class="setting-desc">Continuously detect ad overlays and DOM elements</span>
+        </div>
+        <button id="optPlayerDetect" class="toggle-btn" aria-label="Toggle Player Detection">ON</button>
+      </div>
+      <div class="setting-row">
+        <div class="setting-info">
+          <span class="setting-label">Network filtering</span>
+          <span class="setting-desc">DeclarativeNetRequest rules for known ad beacons</span>
+        </div>
+        <button id="optNetFilter" class="toggle-btn" aria-label="Toggle Network Filtering">ON</button>
+      </div>
+    </div>
+
+    <!-- RECOVERY -->
+    <div class="section">
+      <h2 class="section-title">Recovery</h2>
+      <div class="setting-row">
+        <div class="setting-info">
+          <span class="setting-label">Automatic recovery</span>
+          <span class="setting-desc">Attempt automatic playback recovery upon ad detection</span>
+        </div>
+        <button id="optAutoRecovery" class="toggle-btn" aria-label="Toggle Automatic Recovery">ON</button>
+      </div>
+      <div class="setting-row">
+        <div class="setting-info">
+          <span class="setting-label">Maximum attempts</span>
+          <span class="setting-desc">Maximum retries per video before yielding to normal player</span>
+        </div>
+        <select id="optMaxAttempts" class="select-input">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- DEBUG -->
+    <div class="section">
+      <h2 class="section-title">Debug</h2>
+      <div class="setting-row">
+        <div class="setting-info">
+          <span class="setting-label">Diagnostic logging</span>
+          <span class="setting-desc">Log state transitions and recovery steps in browser console</span>
+        </div>
+        <button id="optLogging" class="toggle-btn" aria-label="Toggle Diagnostic Logging">OFF</button>
+      </div>
+    </div>
+
+    <!-- STATISTICS -->
+    <div class="section">
+      <h2 class="section-title">Statistics</h2>
+      <div class="setting-row">
+        <div class="setting-info">
+          <span class="setting-label">Stored statistics</span>
+          <span class="setting-desc">Reset all counters stored in local browser storage</span>
+        </div>
+        <button id="btnClearStats" class="danger-btn">Clear statistics</button>
+      </div>
+    </div>
+
+    <div id="statusMessage" class="status-message"></div>
+  </div>
+
+</body>
+</html>

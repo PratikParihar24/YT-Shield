@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YT Shield</title>
+  <script type="module" crossorigin src="./popup.js"></script>
+  <link rel="modulepreload" crossorigin href="../chunks/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="../chunks/storage-DL4UGFmJ.js">
+  <link rel="stylesheet" crossorigin href="./popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-title-wrap">
+        <h1 class="title">YT Shield</h1>
+        <span class="subtitle">YouTube protection</span>
+      </div>
+      <div class="status-dot-wrap" title="Status">
+        <div id="statusDot" class="status-dot"></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Protection Toggle & Context -->
+    <div class="protection-card">
+      <div>
+        <div class="protection-text">Protection</div>
+        <div id="tabStatusText" class="yt-status-text">Checking tab...</div>
+      </div>
+      <button id="toggleProtectionBtn" class="toggle-btn" aria-label="Toggle Protection">OFF</button>
+    </div>
+
+    <!-- Active Status Line -->
+    <div class="info-row">
+      <span class="info-label">YouTube</span>
+      <span id="playerStateText" class="info-val">● Inactive</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Detection Module States -->
+    <div>
+      <div class="section-label">Detection</div>
+      <div class="info-list">
+        <div class="info-row">
+          <span class="info-label">Network filtering</span>
+          <span id="netFilterStatus" class="info-val">ON</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Player detection</span>
+          <span id="playerDetectStatus" class="info-val">ON</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Recovery engine</span>
+          <span id="recoveryEngineStatus" class="info-val">ON</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Daily Statistics -->
+    <div>
+      <div class="section-label">Today</div>
+      <div class="info-list">
+        <div class="info-row">
+          <span class="info-label">Detected</span>
+          <span id="statDetected" class="info-val">0</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Recovered</span>
+          <span id="statRecovered" class="info-val">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Actions / Navigation -->
+    <div class="nav-links">
+      <button id="openSettingsBtn" class="nav-button">
+        <span>Settings</span>
+        <span class="nav-chevron">›</span>
+      </button>
+      <button id="toggleDiagnosticsBtn" class="nav-button">
+        <span>Diagnostics</span>
+        <span class="nav-chevron">›</span>
+      </button>
+    </div>
+
+    <!-- Diagnostics Drawer -->
+    <div id="diagnosticsPanel" class="diagnostics-panel">
+      <div class="diag-item">
+        <span>State:</span>
+        <span id="diagState">IDLE</span>
+      </div>
+      <div class="diag-item">
+        <span>Video ID:</span>
+        <span id="diagVideoId">None</span>
+      </div>
+      <div class="diag-item">
+        <span>Attempts:</span>
+        <span id="diagAttempts">0/3</span>
+      </div>
+      <div class="diag-item">
+        <span>Network DNR:</span>
+        <span id="diagNetwork">Active</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
