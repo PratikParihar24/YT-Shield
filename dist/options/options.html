@@ -24,7 +24,9 @@
           <span class="setting-label">Protection</span>
           <span class="setting-desc">Enable or disable all protection capabilities</span>
         </div>
-        <button id="optProtection" class="toggle-btn" aria-label="Toggle Protection">ON</button>
+        <button id="optProtection" class="switch-toggle" role="switch" aria-checked="true" aria-label="Toggle Protection">
+          <span class="switch-thumb"></span>
+        </button>
       </div>
     </div>
 
@@ -36,14 +38,18 @@
           <span class="setting-label">Player detection</span>
           <span class="setting-desc">Continuously detect ad overlays and DOM elements</span>
         </div>
-        <button id="optPlayerDetect" class="toggle-btn" aria-label="Toggle Player Detection">ON</button>
+        <button id="optPlayerDetect" class="switch-toggle" role="switch" aria-checked="true" aria-label="Toggle Player Detection">
+          <span class="switch-thumb"></span>
+        </button>
       </div>
       <div class="setting-row">
         <div class="setting-info">
           <span class="setting-label">Network filtering</span>
           <span class="setting-desc">DeclarativeNetRequest rules for known ad beacons</span>
         </div>
-        <button id="optNetFilter" class="toggle-btn" aria-label="Toggle Network Filtering">ON</button>
+        <button id="optNetFilter" class="switch-toggle" role="switch" aria-checked="true" aria-label="Toggle Network Filtering">
+          <span class="switch-thumb"></span>
+        </button>
       </div>
     </div>
 
@@ -55,7 +61,9 @@
           <span class="setting-label">Automatic recovery</span>
           <span class="setting-desc">Attempt automatic playback recovery upon ad detection</span>
         </div>
-        <button id="optAutoRecovery" class="toggle-btn" aria-label="Toggle Automatic Recovery">ON</button>
+        <button id="optAutoRecovery" class="switch-toggle" role="switch" aria-checked="true" aria-label="Toggle Automatic Recovery">
+          <span class="switch-thumb"></span>
+        </button>
       </div>
       <div class="setting-row">
         <div class="setting-info">
@@ -79,7 +87,9 @@
           <span class="setting-label">Diagnostic logging</span>
           <span class="setting-desc">Log state transitions and recovery steps in browser console</span>
         </div>
-        <button id="optLogging" class="toggle-btn" aria-label="Toggle Diagnostic Logging">OFF</button>
+        <button id="optLogging" class="switch-toggle" role="switch" aria-checked="false" aria-label="Toggle Diagnostic Logging">
+          <span class="switch-thumb"></span>
+        </button>
       </div>
     </div>
 

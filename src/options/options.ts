@@ -79,11 +79,10 @@ class OptionsController {
   }
 
   private updateToggleBtn(btn: HTMLButtonElement, isOn: boolean): void {
+    btn.setAttribute('aria-checked', isOn ? 'true' : 'false');
     if (isOn) {
-      btn.textContent = 'ON';
       btn.classList.add('on');
     } else {
-      btn.textContent = 'OFF';
       btn.classList.remove('on');
     }
   }

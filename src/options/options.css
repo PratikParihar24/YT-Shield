@@ -99,27 +99,44 @@ body {
   color: var(--text-secondary);
 }
 
-/* Switches and controls */
-.toggle-btn {
-  background: none;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  padding: 5px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-secondary);
+/* Modern Toggle Switch */
+.switch-toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background-color: var(--border-color);
+  border-radius: 9999px;
+  border: none;
   cursor: pointer;
-  transition: all 0.15s ease;
+  padding: 2px;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  outline: none;
 }
 
-.toggle-btn:focus-visible {
+.switch-toggle:focus-visible {
   outline: var(--focus-ring);
+  outline-offset: 2px;
 }
 
-.toggle-btn.on {
+.switch-toggle.on {
   background-color: var(--text-primary);
-  color: var(--bg-primary);
-  border-color: var(--text-primary);
+}
+
+.switch-thumb {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--bg-primary);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(0);
+}
+
+.switch-toggle.on .switch-thumb {
+  transform: translateX(20px);
 }
 
 .select-input {

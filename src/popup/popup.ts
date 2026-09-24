@@ -100,11 +100,10 @@ class PopupController {
     if (!this.settings) return;
 
     // Toggle Button
+    this.toggleProtectionBtn.setAttribute('aria-checked', this.settings.protectionEnabled ? 'true' : 'false');
     if (this.settings.protectionEnabled) {
-      this.toggleProtectionBtn.textContent = 'ON';
       this.toggleProtectionBtn.classList.add('on');
     } else {
-      this.toggleProtectionBtn.textContent = 'OFF';
       this.toggleProtectionBtn.classList.remove('on');
     }
 

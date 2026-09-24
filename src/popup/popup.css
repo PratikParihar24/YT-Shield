@@ -141,7 +141,46 @@ body {
   margin-top: 2px;
 }
 
-/* Modern Minimalist Toggle */
+/* Modern Toggle Switch */
+.switch-toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background-color: var(--border-color);
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  outline: none;
+}
+
+.switch-toggle:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.switch-toggle.on {
+  background-color: var(--text-primary);
+}
+
+.switch-thumb {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--bg-primary);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(0);
+}
+
+.switch-toggle.on .switch-thumb {
+  transform: translateX(20px);
+}
+
 .toggle-btn {
   background: none;
   border: 1px solid var(--border-color);

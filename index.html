@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YT Shield — Clean, Ad-Free YouTube Playback</title>
+  <link rel="icon" type="image/png" href="./assets/icons/icon48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09090b;
+      --surface: #18181b;
+      --surface-border: #27272a;
+      --text-main: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --accent: #ffffff;
+      --accent-contrast: #09090b;
+      --badge-bg: #27272a;
+      --green: #22c55e;
+      --green-glow: rgba(34, 197, 94, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 20px;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 0 100px;
+    }
+
+    /* Nav */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 70px;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background: #ffffff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: var(--badge-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 9999px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--green);
+    }
+
+    h1 {
+      font-size: 46px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--accent);
+      color: var(--accent-contrast);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--surface);
+      color: var(--text-main);
+      border: 1px solid var(--surface-border);
+      font-weight: 500;
+      font-size: 14px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #202024;
+    }
+
+    /* Features Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 80px;
+    }
+
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: #3f3f46;
+    }
+
+    .card-icon {
+      font-size: 20px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Installation Steps */
+    .section-title {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .steps-container {
+      background-color: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 80px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--surface-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .step-content p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .code-chip {
+      display: inline-block;
+      background: #09090b;
+      border: 1px solid #3f3f46;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: monospace;
+      font-size: 12px;
+      color: #e4e4e7;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--surface-border);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo-group">
+        <div class="logo-icon">YT</div>
+        <span class="logo-text">YT Shield</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-to-install">Installation</a>
+        <a href="./UserJourney.md" target="_blank">Handbook</a>
+        <a href="./Theory.md" target="_blank">Architecture</a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="pill-badge">
+        <span class="pulse-dot"></span>
+        Manifest V3 &bull; Lightweight &bull; Open Source
+      </div>
+      <h1>Fast, Silent &amp; Undetectable Ad Protection for YouTube</h1>
+      <p class="hero-desc">
+        YT Shield accelerates YouTube ads at 16x speed, triggers instant skip clicks, blocks telemetry beacons, and preserves uninterrupted playback.
+      </p>
+      <div class="cta-group">
+        <button id="downloadZipBtn" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Extension (.zip)
+        </button>
+        <a href="#how-to-install" class="btn-secondary">Installation Guide</a>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div id="features" class="grid">
+      <div class="card">
+        <span class="card-icon">⚡</span>
+        <h3>16x Acceleration</h3>
+        <p>When an ad starts, it is muted and sped through at the browser's hardware limit in milliseconds.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🖱️</span>
+        <h3>Instant Synthetic Skip</h3>
+        <p>Dispatches full bubbling mouse pointer events to modern YouTube skip components the microsecond they render.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🛡️</span>
+        <h3>Declarative Net Request</h3>
+        <p>Blocks tracking beacons and DoubleClick telemetry at the C++ browser network layer before JS execution.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🎯</span>
+        <h3>Zero Main Video False-Positives</h3>
+        <p>Guaranteed 1.0x playback rate and unmuted audio restoration the exact moment normal video begins.</p>
+      </div>
+    </div>
+
+    <!-- Installation Steps -->
+    <h2 id="how-to-install" class="section-title">How to Install in 3 Easy Steps</h2>
+    <div class="steps-container">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Download and Extract</h4>
+          <p>Click the download button above or clone the repository, then extract the downloaded ZIP folder on your computer.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Open Chrome Extensions</h4>
+          <p>Navigate to <span class="code-chip">chrome://extensions</span> in your browser address bar and enable <strong>Developer mode</strong> in the top right corner.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Load Unpacked Extension</h4>
+          <p>Click <strong>Load unpacked</strong> and select the <span class="code-chip">dist</span> folder of YT Shield. That's it! Pin it to your toolbar and enjoy ad-free YouTube.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div>&copy; 2026 YT Shield. Minimalistic YouTube Playback Recovery Extension.</div>
+      <div class="nav-links">
+        <a href="./UserJourney.md">User Journey</a>
+        <a href="./Theory.md">Theory &amp; Concepts</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Simple download handler: downloads dist folder files or source snapshot
+    document.getElementById('downloadZipBtn').addEventListener('click', () => {
+      alert("To install YT Shield:\n1. Your local 'dist' folder contains the built extension ready to load in chrome://extensions!\n2. You can also package or zip the 'dist' directory to share with anyone.");
+    });
+  </script>
+</body>
+</html>
