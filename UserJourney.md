@@ -55,7 +55,7 @@ sequenceDiagram
     participant Storage as StorageService (storage.ts)
     participant DNR as declarativeNetRequest API
 
-    User->>Browser: Loads Unpacked Folder (`dist`)
+    User->>Browser: Loads Unpacked Folder (`yt-shield`)
     Browser->>SW: Fires `chrome.runtime.onInstalled`
     SW->>Storage: `StorageService.getSettings()`
     Storage-->>SW: Returns DEFAULT_SETTINGS

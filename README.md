@@ -73,8 +73,7 @@ The output bundle is generated in the `dist/` directory.
 2. Navigate to `chrome://extensions/`.
 3. Toggle **Developer mode** in the upper-right corner.
 4. Click **Load unpacked**.
-5. Select the `dist/` folder inside the `YT-Shield` directory:
-   `c:\Users\prati\OneDrive\Desktop\YT-Shield\dist`
+5. Select the unzipped `yt-shield` folder (or the `dist/` folder if running from source repository).
 6. Pin **YT Shield** to your Chrome toolbar.
 
 ---
